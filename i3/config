@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -223,5 +223,6 @@ client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
 
-exec xrandr --output HDMI-0 --auto --right-of HDMI-1
-exec feh --bg-scale /home/kian/Pictures/bg.png
+exec --no-startup-id xrandr --output HDMI-0 --auto --right-of HDMI-1
+exec --no-startup-id feh --bg-scale /home/kian/Pictures/bg.png
+exec --no-startup-id /home/kian/source/i3-alternating-layout/alternating_layouts.py

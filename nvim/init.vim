@@ -33,7 +33,7 @@ set completeopt=menuone,noinsert,noselect
 set colorcolumn=100
 
 call plug#begin()
-Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'wbthomason/packer.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -41,6 +41,7 @@ Plug 'nvim-lua/popup.nvim'
     Plug 'norcalli/snippets.nvim'
     Plug 'gruvbox-community/gruvbox'
     Plug 'kien/ctrlp.vim'
+    Plug 'preservim/nerdtree'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -49,9 +50,22 @@ Plug 'nvim-lua/popup.nvim'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-fugitive'
     Plug 'rust-lang/rust.vim'
+    " Add maktaba and codefmt to the runtimepath.
+    " (The latter must be installed before it can be used.)
+    Plug 'google/vim-maktaba'
+    Plug 'google/vim-codefmt'
+    " Also add Glaive, which is used to configure codefmt's maktaba flags. See
+    " `:help :Glaive` for usage.
+    Plug 'google/vim-glaive'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+
+call glaive#Install()
+
+augroup autoformat_settigns
+    autocmd Filetype rust AutoFormatBuffer rustfmt
+augroup END
 
 autocmd vimenter * ++nested colorscheme gruvbox
 
@@ -82,6 +96,8 @@ nnoremap <leader>gs <esc>:Git<CR>
 nnoremap <leader>gd <esc>:Git diff<CR>
 nnoremap <leader>ga <esc>:Git add %<CR>
 nnoremap <leader>gc <esc>:Git commit<CR>
+nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>ff :NERDTreeFocus<CR>
 
 nnoremap j gj
 nnoremap k gk
