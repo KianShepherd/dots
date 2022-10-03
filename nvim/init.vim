@@ -81,13 +81,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_mode_n = 'NORMAL'
 
-let mapleader = " "
+let NERDTreeShowHidden=1
 
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
+let mapleader = " "
 
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ") })<CR>
 nnoremap <leader>vd <esc>:call CocActionAsync('jumpDefinition')<CR>
@@ -115,8 +111,3 @@ nnoremap <c-R> <esc>:tabn<cr>
 nnoremap <c-Z> :UndotreeToggle<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-augroup TRIM_ENDS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
-augroup END
