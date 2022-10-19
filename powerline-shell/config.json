@@ -1,0 +1,10 @@
+{
+  "segments": [
+    "username",
+    "cwd",
+    "git",
+    "hg",
+    "jobs"
+  ],
+  "theme": "~/.config/powerline-shell/themes/gruvbox.py"
+}

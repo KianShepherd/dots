@@ -101,6 +101,10 @@ nnoremap B ^
 nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>
+vnoremap B ^
+vnoremap E $
+vnoremap $ <nop>
+vnoremap ^ <nop>
 inoremap jk <esc>
 nnoremap <leader>ww <esc>:w!<cr>
 nnoremap <leader>wq <esc>:wq!<cr>
