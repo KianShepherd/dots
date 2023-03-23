@@ -33,10 +33,10 @@ set completeopt=menuone,noinsert,noselect
 set colorcolumn=100
 
 call plug#begin()
+    Plug 'christoomey/vim-tmux-navigator'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'wbthomason/packer.nvim'
-    Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     Plug 'norcalli/snippets.nvim'
     Plug 'gruvbox-community/gruvbox'
@@ -50,6 +50,18 @@ call plug#begin()
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-fugitive'
     Plug 'rust-lang/rust.vim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'ziglang/zig.vim'
     " Add maktaba and codefmt to the runtimepath.
     " (The latter must be installed before it can be used.)
     Plug 'google/vim-maktaba'
@@ -80,6 +92,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_mode_n = 'NORMAL'
+let g:completion_enable_auto_popup = 1
 
 let NERDTreeShowHidden=1
 
@@ -115,3 +128,5 @@ nnoremap <c-R> <esc>:tabn<cr>
 nnoremap <c-Z> :UndotreeToggle<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+lua require('options')
