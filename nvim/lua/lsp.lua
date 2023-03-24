@@ -8,7 +8,7 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
