@@ -1,13 +1,5 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
-
 local cmp = require('cmp')
 
 cmp.setup({
@@ -18,7 +10,7 @@ cmp.setup({
   },
   window = {
     completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -56,13 +48,18 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['pyright'].setup {
+lspconfig.pyright.setup {
   capabilities = capabilities
 }
 
-require('lspconfig')['rust_analyzer'].setup {
-  capabilities = capabilities
+lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
+ -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
 }
-require('lspconfig')['zls'].setup {
+
+lspconfig.zls.setup {
   capabilities = capabilities
 }

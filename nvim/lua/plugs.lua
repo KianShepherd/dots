@@ -6,7 +6,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'wbthomason/packer.nvim'
     Plug 'nvim-lua/completion-nvim'
-    Plug 'norcalli/snippets.nvim'
     Plug 'gruvbox-community/gruvbox'
     Plug 'kien/ctrlp.vim'
     Plug 'preservim/nerdtree'
