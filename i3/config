@@ -236,5 +236,6 @@ client.urgent           $red $red $white $red $red
 exec --no-startup-id xrandr --output HDMI-0 --auto --right-of HDMI-1
 exec --no-startup-id feh --bg-scale /home/kian/Pictures/bg.png
 exec --no-startup-id /home/kian/source/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id picom
 exec google-chrome
 exec spotify

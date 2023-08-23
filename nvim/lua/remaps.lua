@@ -1,6 +1,19 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>ps", function()
+    require('telescope').setup({
+        defaults = {
+            file_ignore_patterns = { "^./.git/", "^imgui/", "^vendor/", "^CMake" },
+        }
+    })
+    require('telescope.builtin').live_grep()
+end)
+vim.keymap.set("n", "<leader>psa", function()
+    require('telescope').setup({
+        defaults = {
+            file_ignore_patterns = {},
+        }
+    })
     require('telescope.builtin').live_grep()
 end)
 vim.keymap.set("n", "<c-F>", function()
